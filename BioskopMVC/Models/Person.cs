@@ -4,7 +4,7 @@
     {
         
 
-        public int Id { get; set; }
+        public int PersonId { get; set; }
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
@@ -13,9 +13,9 @@
 
         public string Nationality { get; set; }
 
-        public Person(int id, string firstName, string lastName, DateTime dateOfBirth, string nationality)
+        public Person(int personId, string firstName, string lastName, DateTime dateOfBirth, string nationality)
         {
-            Id = id;
+            PersonId = personId;
             FirstName = firstName;
             LastName = lastName;
             DateOfBirth = dateOfBirth;
