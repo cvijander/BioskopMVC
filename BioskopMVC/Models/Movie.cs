@@ -12,10 +12,10 @@
         public string PosterUrl { get; set; }
         public List<string> Genres { get; set; }
         public List<Actor> Actors { get; set; }
-        public Director Directors { get; set; }
+        public Director Director { get; set; }
 
 
-        public Movie(int movieId, string title, TimeSpan duration, DateTime releaseDate, string description, string productionCompany, double rating, string posterUrl, List<string> genres, List<Actor> actors, Director directors)
+        public Movie(int movieId, string title, TimeSpan duration, DateTime releaseDate, string description, string productionCompany, double rating, string posterUrl, List<string> genres, List<Actor> actors, Director director)
         {
             MovieId = movieId;
             Title = title;
@@ -27,14 +27,14 @@
             PosterUrl = posterUrl;
             Genres = genres;
             Actors = actors;
-            Directors = directors;
+            Director = director;
         }
 
         public Movie()
         {
             Genres = new List<string>();
             Actors = new List<Actor>();
-            Directors = null;
+            Director = null;
         }
     }
 
