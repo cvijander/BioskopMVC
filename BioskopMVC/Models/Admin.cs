@@ -11,6 +11,8 @@
             AdminPrivileges = adminPrivileges;
         }
 
+        public Admin() { }
+
 
     }
 }

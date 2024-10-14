@@ -12,5 +12,7 @@
             Description = description;
             
         }
+
+        public Director() { }
     }
 }

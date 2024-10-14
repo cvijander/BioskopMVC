@@ -17,5 +17,7 @@
 
         }
 
+        public Actor() { }
+
     }
 }

@@ -9,13 +9,15 @@
         public string Description { get; set; }
         public string ProductionCompany { get; set; }
         public double Rating { get; set; }
-        public string PosterUrl { get; set; }
-        public List<string> Genres { get; set; }
+        public string PosterUrl { get; set; }        
         public List<Actor> Actors { get; set; }
         public Director Director { get; set; }
 
+        public bool isActive { get; set; }
 
-        public Movie(int movieId, string title, TimeSpan duration, DateTime releaseDate, string description, string productionCompany, double rating, string posterUrl, List<string> genres, List<Actor> actors, Director director)
+        public List<MovieGenre> MovieGenres { get; set; } = new List<MovieGenre>();
+
+        public Movie(int movieId, string title, TimeSpan duration, DateTime releaseDate, string description, string productionCompany, double rating, string posterUrl, List<MovieGenre> movieGenres, List<Actor> actors, Director director, bool isActive)
         {
             MovieId = movieId;
             Title = title;
@@ -25,14 +27,15 @@
             ProductionCompany = productionCompany;
             Rating = rating;
             PosterUrl = posterUrl;
-            Genres = genres;
+            MovieGenres = movieGenres;
             Actors = actors;
             Director = director;
+            this.isActive = isActive;
         }
 
         public Movie()
         {
-            Genres = new List<string>();
+            MovieGenres = new List<MovieGenre> ();
             Actors = new List<Actor>();
             Director = null;
         }

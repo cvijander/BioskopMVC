@@ -7,6 +7,10 @@
         public string Row { get; set; }
         public int SeatNumber { get; set; }
 
+        public int CinemaHallId {  get; set; }
+        
+        public CinemaHall CinemaHall { get; set; }
+
         public SeatingArea() { }
 
         public SeatingArea(int seatingAreaId, string sector, string row, int seatNumber)

@@ -15,6 +15,7 @@
             RegistrationDate = registrationDate;
         }
 
+        public User () { }
         
     }
 }
