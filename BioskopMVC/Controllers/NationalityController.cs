@@ -116,7 +116,7 @@ namespace BioskopMVC.Controllers
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-                    string sql = "UPDATE Nationalities SET Name = @Name Where NationlityId = @Id";
+                    string sql = "UPDATE Nationalities SET Name = @Name Where NationalityId = @Id";
                     SqlCommand command = new SqlCommand(sql, connection);
                     command.Parameters.AddWithValue("@Name", nationality.Name);
                     command.Parameters.AddWithValue("@Id", nationality.NationalityId);
@@ -180,8 +180,10 @@ namespace BioskopMVC.Controllers
                 command.ExecuteNonQuery();
             }
 
+            
             return RedirectToAction(nameof(GetNationalities));
         }
+
 
     }
 }
