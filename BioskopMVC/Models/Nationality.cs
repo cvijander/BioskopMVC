@@ -4,10 +4,10 @@ namespace BioskopMVC.Models
 {
     public class Nationality
     {
-        public int NationalityID { get; set; }
+        public int NationalityId { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [Required(ErrorMessage ="Nazvi nacionalnosti je obavezan.")]
+        [StringLength(50, ErrorMessage ="Naziv ne sme biti duzi od 50 karaktera.")]
         public string Name { get; set; }  
     }
 }
