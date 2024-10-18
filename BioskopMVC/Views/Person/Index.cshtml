@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<BioskopMVC.Models.Person>
+
+<h2>List of People</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+            <th>Nationality</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var person in Model)
+        {
+            <tr>
+                <td>@person.FirstName</td>
+                <td>@person.LastName</td>
+                <td>@person.DateOfBirth.ToShortDateString()</td>
+                <td>@person.NationalityId</td>
+                <td>
+                    <a href="@Url.Action("Edit", new {id = person.PersonId})" class="btn btn-primary">Edit</a> |
+                    <a href="@Url.Action("Delete", new {id = person.PersonId})" class =" btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create") class="btn btn-success">Add New Person</a> 

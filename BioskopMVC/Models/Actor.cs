@@ -1,20 +1,20 @@
-﻿namespace BioskopMVC.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BioskopMVC.Models
 {
     public class Actor: Person
     {
-       
-        public int ActorId { get; set; }
 
+        [Required(ErrorMessage ="Opis je obavezan.")]
+        [StringLength(1000, ErrorMessage ="Duzina opisa ne moze biti veca od 1000 karaktera.")]
         public string Description { get; set; }
 
         public List<Movie> Movies { get; set; } = new List<Movie>();
 
-        public Actor(int personId, string firstName, string lastName, DateTime dateOfBirth, string nationality, string description, int actorId) : base(personId, firstName, lastName, dateOfBirth, nationality)
+        public Actor(int personId, string firstName, string lastName, DateTime dateOfBirth, int nationalityId, string description) : base(personId, firstName, lastName, dateOfBirth, nationalityId)
         {
-
-            ActorId = actorId;
+            
             Description = description;
-
         }
 
         public Actor() { }
