@@ -12,9 +12,14 @@ Ima pristup upravljanju sledećim entitetima:
 - **Bioskop (Cinema)**
 - **Bioskopske sale (CinemaHall)**
 - **Raspored sedenja (SeatingArea)**
+- **Film(Movie)**
+- **Glumac(Actor)**
+- **Reditelj(Director)**
+- **Osoba(Person)**
+- **Nacionalnost(Nationlity)**
 
 ### Entiteti:
-- **Film (Movie)**: Administrator može da kreira, menja i briše filmove.
+- **Film (Movie)**: Entitet koji povezuje glumca i reditelja 
 - **Glumac (Actor)**: Entitet koji predstavlja glumca u filmu.
 - **Reditelj (Director)**: Entitet koji predstavlja reditelja filma.
 - **Nacionalnost (Nationality)**: Utice na klasu **Person**, koju nasleđuju **Actor**, **Director**, **Admin**, i **Customer**.
@@ -22,7 +27,6 @@ Ima pristup upravljanju sledećim entitetima:
 
 ### Administratorske funkcionalnosti:
 Administrator može da:
-- Kreira, menja i briše entitete povezane sa filmovima (**Movie**, **Actor**, **Director**).
-- Kreira, menja i briše entitete povezane sa bioskopima i salama (**Cinema**, **CinemaHall**, **SeatingArea**).
+- Kreira, menja i briše entitete povezane sa filmovima (**Movie**, **Actor**, **Director**,**Cinema**, **CinemaHall**, **SeatingArea**,**Person**, **Nationality**).
 
 Aplikacija funkcioniše po sličnom principu kao što je primenjeno na sajtu [Cineplexx](https://www.cineplexx.rs/).
