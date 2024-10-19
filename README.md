@@ -164,7 +164,7 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 ![Kreiranje nove nacionalnosti](./images/NationalityCreate.png)
 
 - [x] - **Modifikovanje postojece nacionalnosti**
-![Modifikovanje postojece nacionalnosti](./images/NationalityEdit.png)
+![Modifikovanje postojece nacionalnosti](./images/NationlityEdit.png)
 
 - [x] - **Brisanje postojece nacionalnosti**
 ![Brisanje postojece nacionalnosti](./images/NationalityDelete.png)      
