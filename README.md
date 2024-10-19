@@ -65,7 +65,7 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 
     {
       "ConnectionStrings": {
-        "DefaultConnection": "Server=ime_vasih_servera;Database=bioskopmvc;Trusted_Connection=True;"
+        "DefaultConnection": "Server=DESKTOP-FEP7AFG\\SQLEXPRESS;Database=BioskopDB;Trusted_Connection=True;"
       }
     }
 ```
