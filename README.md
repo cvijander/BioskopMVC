@@ -75,7 +75,7 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 
     dotnet run
 ```
-6. Otvorite pregledač i idite na https://localhost:5001 kako biste pristupili aplikaciji.
+6. Otvorice Vam se browser sa aplikacijom.
 
 
 ## Trenutni prikaz aplikacije 
