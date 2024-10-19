@@ -155,9 +155,9 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 ## Nationalities 
 
 -[x] - Kreirana tabela u bazi 
-![Kreirana tabela ](./images/NationalitiesTabela)
+![Kreirana tabela ](./images/NationalitiesTabela.png)
 
 - [x] -Lista nacionalnosti
-![Lista nacionalnosti](./images/GetNacionity)
+![Lista nacionalnosti](./images/GetNacionity.png)
 
       
