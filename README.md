@@ -106,11 +106,11 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 
 - ### Actor
 
-- [] Kreirana tabela
-- [] Prikaz - 
-- [] Create  - 
-- [] Edit  - 
-- [] Delete - 
+- [ ] Kreirana tabela
+- [ ] Prikaz - 
+- [ ] Create  - 
+- [ ] Edit  - 
+- [ ] Delete - 
 
 ### Director
 
