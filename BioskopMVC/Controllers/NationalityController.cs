@@ -21,7 +21,6 @@ namespace BioskopMVC.Controllers
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-
                 string sql = "SELECT NationalityId, Name FROM Nationalities";
                 SqlCommand command = new SqlCommand(sql, connection);
 

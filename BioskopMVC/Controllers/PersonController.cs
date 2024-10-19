@@ -1,19 +1,52 @@
 ﻿using BioskopMVC.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
 
 namespace BioskopMVC.Controllers
 {
     public class PersonController : Controller
     {
-        // lista osoba 
-        private static List<Person> people = new List<Person>();
+        private readonly string _connectionString;
+
+        public PersonController(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("BioskopDBConnection");
+        }
+             
 
 
         //GET person 
-        public IActionResult Index()
+        public IActionResult GetPeople()
         {
-            return View(people);
+             // lista osoba 
+            List<Person> people = new List<Person>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT PersonId, FirstName, LastName, DateOfBirth, NationalityId FROM Person";
+                SqlCommand command = new SqlCommand(sql, connection);
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while(reader.Read())
+                    {
+                        Person person = new Person
+                        {
+                            PersonId = reader.GetInt32(0),
+                            FirstName = reader.GetString(1),
+                            LastName = reader.GetString(2),
+                            DateOfBirth = reader.GetDateTime(3),
+                            NationalityId = reader.GetInt32(4)
+                        };
+
+                        people.Add(person);
+                    }
+                }
+            }
+                return View(people);
         }
+
 
 
         // GET Person / Create
@@ -25,24 +58,59 @@ namespace BioskopMVC.Controllers
         // POST: Person / Create  
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("PersonId, FirstName, LastName, DateOfBirth,NationalityId")] Person person)
+        public IActionResult Create(Person person)
         {
             if (ModelState.IsValid)
             {
-                // dodavanje nove osobe u listu
-                people.Add(person);
-                return RedirectToAction(nameof(Index));
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
+                    string sql = "INSERT INTO Person (FirstName, LastName, DateOfBirth, NationalityId ) VALUES (@FirstName, @LastName, @DateOfBirth, @NationalityId )";
+                    SqlCommand command = new SqlCommand(sql, connection);
+                    command.Parameters.AddWithValue("@FirstName", person.FirstName);
+                    command.Parameters.AddWithValue("@LastName", person.LastName);
+                    command.Parameters.AddWithValue("@DateOfBirth", person.DateOfBirth);
+                    command.Parameters.AddWithValue("NationalityId", person.NationalityId);
+
+                    command.ExecuteNonQuery();
+                }
+
+                return RedirectToAction(nameof(GetPeople));
             }
             return View(person);
         }
 
 
-
         // GET:  Person/Edit 
         public IActionResult Edit(int id)
         {
-            var person = people.FirstOrDefault(p => p.PersonId == id);
-            if(person == null)
+            Person person = null;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT PersonId, FirstName, LastName, DateOfBirth, NationalityId FROM Person WHERE PersonId = @Id ";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@Id", id);
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        person = new Person
+                        {
+                            PersonId = reader.GetInt32(0),
+                            FirstName = reader.GetString(1),
+                            LastName = reader.GetString(2),
+                            DateOfBirth = reader.GetDateTime(3),
+                            NationalityId = reader.GetInt32(4)
+                        };
+
+                    }
+                }
+            }
+
+            if(person ==null)
             {
                 return NotFound();
             }
@@ -53,56 +121,86 @@ namespace BioskopMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, [Bind("PersonId, FirstName, LastName,DateOfBirth,Nationality")] Person person)
+        public IActionResult Edit(Person person)
         {
             if (ModelState.IsValid)
             {
-                //cupanje prema id 
-                var existingPerson = people.FirstOrDefault(p => p.PersonId == id);
-
-                // ako ne postoji 
-                if (existingPerson == null)
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
-                    return NotFound();
+                    connection.Open();
+                    string sql = "UPDATE Person GET FirstName = @FirstName, LastName = @LastName,DateOfBith = @DateOfBirth, NationalityId = @NationalityId WHERE PersonId = @Id";
+                    SqlCommand command = new SqlCommand(sql, connection);
+                    command.Parameters.AddWithValue("@FirstName", person.FirstName);
+                    command.Parameters.AddWithValue("LastName", person.LastName);
+                    command.Parameters.AddWithValue("@DateOfBirth", person.DateOfBirth);
+                    command.Parameters.AddWithValue("@NationlityId", person.NationalityId);
+                    command.Parameters.AddWithValue("@Id", person.PersonId);
+
+                    command.ExecuteNonQuery();
                 }
 
-                // Azuriranje  podataka 
-                existingPerson.FirstName = person.FirstName;
-                existingPerson.LastName = person.LastName;
-                existingPerson.DateOfBirth = person.DateOfBirth;
-                existingPerson.NationalityId = person.NationalityId;
-
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(GetPeople));
             }
-
             return View(person);
         }
+
+
 
         // GET  Person /Delete 
         public IActionResult Delete(int id)
         {
-            var person = people.FirstOrDefault(p => p.PersonId == id);
-            if(person == null)
+            Person person = null;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT PersonId, FirstName, LastName,DateOfBirth, NationlityId FROM Person WHERE PersonId = @Id";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@Id", id);
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        person = new Person
+                        {
+                            PersonId = reader.GetInt32(0),
+                            FirstName = reader.GetString(1),
+                            LastName = reader.GetString(2),
+                            DateOfBirth = reader.GetDateTime(3),
+                            NationalityId = reader.GetInt32(4)
+
+                        };
+                    }
+                }
+            }
+
+            if (person == null)
             {
                 return NotFound();
             }
+
             return View(person);
         }
+
+        
 
         // POST Person / Delete 
         [HttpPost,ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var person = people.FirstOrDefault(p => p.PersonId == id);
-
-            // osoba je pronadjena i brisemo je 
-            if(person != null)
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                people.Remove(person);
+                connection.Open();
+                string sql = "DELETE Person WHERE PersonId = @Id";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@Id", id);
+
+                command.ExecuteNonQuery();
             }
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(GetPeople));
         }
 
     }
