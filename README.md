@@ -86,7 +86,7 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 
 ## Status zadatka 
  - [x] Kreiran osnovni model aplikacije
- - [x] 
+ -  
 
 ### Nationalities
 
@@ -98,11 +98,11 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 
 ### Person
 
-- [] Kreirana tabela
-- [] Prikaz
-- [] Create  - 
-- [] Edit  - 
-- [] Delete - 
+- [ ] Kreirana tabela
+- [ ] Prikaz
+- [ ] Create  - 
+- [ ] Edit  - 
+- [ ] Delete - 
 
 - ### Actor
 
@@ -114,40 +114,50 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 
 ### Director
 
-- [] Kreirana tabela
-- [] Peikaz  
-- [] Create  -
-- [] Edit  - 
-- [] Delete -
+- [ ] Kreirana tabela
+- [ ] Peikaz  
+- [ ] Create  -
+- [ ] Edit  - 
+- [ ] Delete -
 
 - ### Movie
 
-- [] Kreirana tabela
-- [] Peikaz  
-- [] Create  -
-- [] Edit  - 
-- [] Delete - 
+- [ ] Kreirana tabela
+- [ ] Peikaz  
+- [ ] Create  -
+- [ ] Edit  - 
+- [ ] Delete - 
 
  ### Cinema
 
-- [] Kreirana tabela
-- [] Peikaz  
-- [] Create  -
-- [] Edit  - 
-- [] Delete -
+- [ ] Kreirana tabela
+- [ ] Peikaz  
+- [ ] Create  -
+- [ ] Edit  - 
+- [ ] Delete -
 
 - ### CinemaHall
 
-- [] Kreirana tabela
-- [] Peikaz  
-- [] Create  -
-- [] Edit  - 
-- [] Delete -
+- [ ] Kreirana tabela
+- [ ] Peikaz  
+- [ ] Create  -
+- [ ] Edit  - 
+- [ ] Delete -
 
 - ### SeatingArea
 
-- [] Kreirana tabela
-- [] Peikaz  
-- [] Create  -
-- [] Edit  - 
-- [] Delete - 
+- [ ] Kreirana tabela
+- [ ] Peikaz  
+- [ ] Create  -
+- [ ] Edit  - 
+- [ ] Delete -
+
+## Nationalities 
+
+-[x] - Kreirana tabela u bazi 
+`[Kreirana tabela ](./images/NationalitiesTabela)`
+
+- [x] -Lista nacionalnosti
+`[Lista nacionalnosti](./images/GetNacionity)`
+
+      
