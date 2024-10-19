@@ -47,15 +47,17 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 
 ```bash
     git clone https://github.com/yourusername/BioskopMVC.git
-
+```
 
 2. Uđite u direktorijum projekta:
 ```bash
       cd BioskopMVC
+```
 
 3. Restorujte potrebne NuGet pakete:
 ```bash
       dotnet restore
+```
 
 4. Konfigurišite konekcioni string za bazu podataka u appsettings.json fajlu:
 
@@ -66,12 +68,12 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
         "DefaultConnection": "Server=ime_vasih_servera;Database=bioskopmvc;Trusted_Connection=True;"
       }
     }
-
+```
 5. Pokrenite aplikaciju:
 
 ```bash
 
     dotnet run
-
+```
 6. Otvorite pregledač i idite na https://localhost:5001 kako biste pristupili aplikaciji.
 
