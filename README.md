@@ -80,3 +80,74 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 
 ## Trenutni prikaz aplikacije 
 ![Prikaz aplikacije - Pocetna stranica ](./images/Pocetna1.png)
+
+
+
+
+## Status zadatka 
+ - [x] Kreiran osnovni model aplikacije
+ - [x] 
+
+### Nationalities
+
+- [x] Kreirana tabela
+- [x] Partialview  - lista nacionalnosti
+- [x] Create  - kreiranje nove nacionalnosti
+- [x] Edit  - modifikovanje postojece
+- [x] Delete - brisanje postojece nacionalnosti
+
+### Person
+
+- [] Kreirana tabela
+- [] Prikaz
+- [] Create  - 
+- [] Edit  - 
+- [] Delete - 
+
+- ### Actor
+
+- [] Kreirana tabela
+- [] Prikaz - 
+- [] Create  - 
+- [] Edit  - 
+- [] Delete - 
+
+### Director
+
+- [] Kreirana tabela
+- [] Peikaz  
+- [] Create  -
+- [] Edit  - 
+- [] Delete -
+
+- ### Movie
+
+- [] Kreirana tabela
+- [] Peikaz  
+- [] Create  -
+- [] Edit  - 
+- [] Delete - 
+
+ ### Cinema
+
+- [] Kreirana tabela
+- [] Peikaz  
+- [] Create  -
+- [] Edit  - 
+- [] Delete -
+
+- ### CinemaHall
+
+- [] Kreirana tabela
+- [] Peikaz  
+- [] Create  -
+- [] Edit  - 
+- [] Delete -
+
+- ### SeatingArea
+
+- [] Kreirana tabela
+- [] Peikaz  
+- [] Create  -
+- [] Edit  - 
+- [] Delete - 
