@@ -77,3 +77,6 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 ```
 6. Otvorite pregledač i idite na https://localhost:5001 kako biste pristupili aplikaciji.
 
+
+## Trenutni prikaz aplikacije 
+![Prikaz aplikacije - Pocetna stranica ](./images/Pocetna1.png)
