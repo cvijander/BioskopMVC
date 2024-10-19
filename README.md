@@ -46,7 +46,7 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 1. Klonirajte repozitorijum:
 
 ```bash
-    git clone https://github.com/yourusername/BioskopMVC.git
+    git clone https://github.com/cvijander/BioskopMVC.git
 ```
 
 2. Uđite u direktorijum projekta:
