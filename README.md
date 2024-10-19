@@ -154,10 +154,20 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 
 ## Nationalities 
 
--[x] - Kreirana tabela u bazi 
+- [x] - **Kreirana tabela u bazi** 
 ![Kreirana tabela ](./images/NationalitiesTabela.png)
 
-- [x] -Lista nacionalnosti
+- [x] - **Lista nacionalnosti**
 ![Lista nacionalnosti](./images/GetNacionity.png)
+
+- [x] - **Kreiranje nove nacionalnosti**
+![Kreiranje nove nacionalnosti](./images/NationalityCreate.png)
+
+- [x] - **Modifikovanje postojece nacionalnosti**
+![Modifikovanje postojece nacionalnosti](./images/NationalityEdit.png)
+
+- [x] - **Brisanje postojece nacionalnosti**
+![Brisanje postojece nacionalnosti](./images/NationalityDelete.png)      
+      
 
       
