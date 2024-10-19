@@ -36,41 +36,42 @@ Administrator može da:
 Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cineplexx](https://www.cineplexx.rs/).
 
 
-##Pokretanje projekta
-###Potrebni alati
--**.NET SDK (verzija X.X ili novija)**
--**SQL Server ili drugi sistem za upravljanje bazama podataka**
--**Entity Framework (opciono, ako se koristi za pristup bazi podataka)**
+## Pokretanje projekta
+### Potrebni alati
+- **.NET SDK (verzija X.X ili novija)**
+- **SQL Server ili drugi sistem za upravljanje bazama podataka**
+- **Entity Framework (opciono, ako se koristi za pristup bazi podataka)**
 
-###Instalacija
-1.Klonirajte repozitorijum:
+### Instalacija
+1. Klonirajte repozitorijum:
 
 ```bash
-Copy code
-git clone https://github.com/yourusername/BioskopMVC.git
-Uđite u direktorijum projekta:
+    git clone https://github.com/yourusername/BioskopMVC.git
 
-bash
-Copy code
-cd BioskopMVC
-Restorujte potrebne NuGet pakete:
 
-bash
-Copy code
-dotnet restore
-Konfigurišite konekcioni string za bazu podataka u appsettings.json fajlu:
+2. Uđite u direktorijum projekta:
+```bash
+      cd BioskopMVC
 
-json
-Copy code
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=ime_vasih_servera;Database=bioskopmvc;Trusted_Connection=True;"
-  }
-}
-Pokrenite aplikaciju:
+3. Restorujte potrebne NuGet pakete:
+```bash
+      dotnet restore
 
-bash
-Copy code
-dotnet run
-Otvorite pregledač i idite na https://localhost:5001 kako biste pristupili aplikaciji.
+4. Konfigurišite konekcioni string za bazu podataka u appsettings.json fajlu:
+
+```json
+
+    {
+      "ConnectionStrings": {
+        "DefaultConnection": "Server=ime_vasih_servera;Database=bioskopmvc;Trusted_Connection=True;"
+      }
+    }
+
+5. Pokrenite aplikaciju:
+
+```bash
+
+    dotnet run
+
+6. Otvorite pregledač i idite na https://localhost:5001 kako biste pristupili aplikaciji.
 
