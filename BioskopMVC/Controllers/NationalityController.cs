@@ -14,7 +14,7 @@ namespace BioskopMVC.Controllers
             _connectionString = configuration.GetConnectionString("BioskopDBConnection");
         }
 
-        public IActionResult GetNationalities()
+        public List<Nationality> GetNationalities()
         {
             List<Nationality> nationalities = new List<Nationality>();
 
@@ -39,8 +39,14 @@ namespace BioskopMVC.Controllers
                 }
             }
 
-            // 
-            return PartialView("_NationalityDropdownPartial", nationalities);
+            
+            return nationalities;
+        }
+
+        public IActionResult Index()
+        {
+            var nationalities = GetNationalities();
+            return View(nationalities);
         }
 
         // GET     Nacionality / Create

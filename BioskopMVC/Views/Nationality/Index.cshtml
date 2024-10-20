@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<BioskopMVC.Models.Nationality>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nationality ID</th>
+                <th>Nationality Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var nationality in Model)
+            {
+            <tr>
+                <td>@nationality.NationalityId</td>
+                <td>@nationality.Name</td>
+            </tr>
+        }
+        </tbody>
+    </table>
