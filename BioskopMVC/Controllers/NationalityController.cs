@@ -1,6 +1,7 @@
 ﻿using BioskopMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace BioskopMVC.Controllers
 {
@@ -21,7 +22,7 @@ namespace BioskopMVC.Controllers
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                string sql = "SELECT NationalityId, Name FROM Nationalities";
+                string sql = "SELECT NationalityId, Name FROM Nationality";
                 SqlCommand command = new SqlCommand(sql, connection);
 
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -45,8 +46,18 @@ namespace BioskopMVC.Controllers
 
         public IActionResult Index()
         {
-            var nationalities = GetNationalities();
-            return View(nationalities);
+            try
+            {
+                var nationalities = GetNationalities();
+                return View(nationalities);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Greska prilikom prikaza nacionalnosti : " +ex.Message);
+                return View("Greska", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            }
+           
         }
 
         // GET     Nacionality / Create
@@ -60,19 +71,38 @@ namespace BioskopMVC.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Nationality nationality)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
-                    connection.Open();
-                    string sql = "INSERT INTO Nationalities (Name) VALUES (@Name)";
-                    SqlCommand command = new SqlCommand(sql, connection);
-                    command.Parameters.AddWithValue("@Name", nationality.Name);
+                    try
+                    {
+                        connection.Open();
+                        string sql = "INSERT INTO Nationality (Name) VALUES (@Name)";
+                        SqlCommand command = new SqlCommand(sql, connection);
+                        command.Parameters.AddWithValue("@Name", nationality.Name);
 
-                    command.ExecuteNonQuery();
+                        int result = command.ExecuteNonQuery();
+                        if (result > 0)
+                        {
+                            Console.WriteLine("Nacionalnost je uspesno kreirana.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Greska, Nacionalnost nije kreirana");
+                        }
+
+                        return RedirectToAction(nameof(Index));
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Console.WriteLine("Greska prilikom kreiranja nacionalnosti: " + ex.Message);
+                        ModelState.AddModelError(string.Empty, "Greska se desila prilikom snimanja nacionalnosti. ");
+                        return View(nationality);
+                    }
+
                 }
-
-                return RedirectToAction(nameof(GetNationalities));
             }
 
             return View(nationality);
@@ -86,7 +116,7 @@ namespace BioskopMVC.Controllers
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                string sql = "SELECT NationalityId, Name FROM Nationalities WHERE NationalityId = @Id";
+                string sql = "SELECT NationalityId, Name FROM Nationality WHERE NationalityId = @Id";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@Id", id);
 
@@ -116,20 +146,39 @@ namespace BioskopMVC.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Nationality nationality)
         {
-            if( ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
-                    connection.Open();
-                    string sql = "UPDATE Nationalities SET Name = @Name Where NationalityId = @Id";
-                    SqlCommand command = new SqlCommand(sql, connection);
-                    command.Parameters.AddWithValue("@Name", nationality.Name);
-                    command.Parameters.AddWithValue("@Id", nationality.NationalityId);
+                    try
+                    {
+                        connection.Open();
+                        string sql = "UPDATE Nationality SET Name = @Name WHERE NationalityId = @Id";
+                        SqlCommand command = new SqlCommand(sql, connection);
+                        command.Parameters.AddWithValue("@Name", nationality.Name);
+                        command.Parameters.AddWithValue("@Id", nationality.NationalityId);
 
-                    command.ExecuteNonQuery();
+                        int result = command.ExecuteNonQuery();
+                        if (result > 0)
+                        {
+                            Console.WriteLine("Nacionalnost je uspesno izmenjena.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Greska, Nacionalnost nije izmenjena ");
+                        }
+
+                        return RedirectToAction(nameof(Index));
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Console.WriteLine("Greska prilikom izmene nacionalnosti: " + ex.Message);
+                        ModelState.AddModelError(string.Empty, " Greska se desila prilikom izmenje nacionalnosti. ");
+                        return View(nationality);
+                    }
+
                 }
-
-                return RedirectToAction(nameof(GetNationalities));
             }
 
             return View(nationality);
@@ -144,7 +193,7 @@ namespace BioskopMVC.Controllers
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                string sql = "SELECT NationalityId, Name FROM Nationalities WHERE NationalityId = @Id";
+                string sql = "SELECT NationalityId, Name FROM Nationality WHERE NationalityId = @Id";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@Id", id);
 
@@ -177,18 +226,34 @@ namespace BioskopMVC.Controllers
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                connection.Open();
-                string sql = "DELETE FROM Nationalities WHERE NationalityId = @Id";
-                SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@Id", id);
+                try
+                {
+                    connection.Open();
+                    string sql = "DELETE FROM Nationality WHERE NationalityId = @Id";
+                    SqlCommand command = new SqlCommand(sql, connection);
+                    command.Parameters.AddWithValue("@Id", id);
 
-                command.ExecuteNonQuery();
+                    int result = command.ExecuteNonQuery();
+                    if (result > 0)
+                    {
+                        Console.WriteLine("Nacionalnost je uspesno obrisana");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Greska, nacionalnost nije obrisana.");
+                    }
+
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine("Greska prilikom brisanja nacionalnosti: " + ex.Message);
+                    return View("Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+                }
+
             }
-
-            
-            return RedirectToAction(nameof(GetNationalities));
         }
-
 
     }
 }
