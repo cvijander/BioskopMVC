@@ -255,5 +255,12 @@ namespace BioskopMVC.Controllers
             }
         }
 
+        // Partial view 
+        public IActionResult NationalityDropDown()
+        {
+            var nationalities = GetNationalities();
+            return PartialView("_NationalityDropdownPartial", nationalities);
+        }
+
     }
 }

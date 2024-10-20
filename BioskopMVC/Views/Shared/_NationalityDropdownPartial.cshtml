@@ -1,0 +1,7 @@
+﻿@model IEnumerable<BioskopMVC.Models.Nationality>
+
+    <label for="Nationality">Nationality</label>
+    <select  id="Nationality" name="NationalityId" class="form-control" asp-items="@(new SelectList(Model,"NationalityId","Name"))">
+        <option value=""> -- Select Nationality -- </option>
+        
+</select>
