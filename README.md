@@ -16,7 +16,7 @@ Ima pristup upravljanju sledećim entitetima:
 - **Glumac(Actor)**
 - **Reditelj(Director)**
 - **Osoba(Person)**
-- **Nacionalnost(Nationlity)**
+- **Nacionalnost(Nationality)**
 
 ### Entiteti:
 - **Film (Movie)**: Entitet koji povezuje glumca i reditelja 
@@ -95,7 +95,7 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 - [x] Create  - kreiranje nove nacionalnosti
 - [x] Edit  - modifikovanje postojece
 - [x] Delete - brisanje postojece nacionalnosti
-
+- [x] Index - tabela nacionalnosti 
 ### Person
 
 - [ ] Kreirana tabela
