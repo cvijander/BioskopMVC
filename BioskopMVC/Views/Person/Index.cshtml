@@ -1,9 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@model IEnumerable<BioskopMVC.Models.Person>
+﻿@model IEnumerable<BioskopMVC.Models.Person>
 
 <h2>Persons LIst</h2>
 
@@ -25,7 +20,7 @@
                 <td>@person.FirstName</td>
                 <td>@person.LastName</td>
                 <td>@person.DateOfBirth.ToShortDateString()</td>
-                <td>@person.NationalityId</td>
+                <td>@person.Nationality.Name</td>
                 <td>
                     <a href="@Url.Action("Edit", new {id = person.PersonId})" class="btn btn-primary">Edit</a> |
                     <a href="@Url.Action("Delete", new {id = person.PersonId})" class =" btn btn-danger">Delete</a>

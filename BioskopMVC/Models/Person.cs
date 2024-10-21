@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BioskopMVC.Models
@@ -21,10 +22,10 @@ namespace BioskopMVC.Models
         [Required(ErrorMessage ="Datum rodjenja je obavezan.")]
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
-
-        [ForeignKey("Nationality")]
+                        
         public int NationalityId { get; set; }
 
+        [BindNever]
         public Nationality Nationality { get; set; }
 
         public Person(int personId, string firstName, string lastName, DateTime dateOfBirth, int nationalityId)

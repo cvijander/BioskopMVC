@@ -1,0 +1,38 @@
+﻿@model BioskopMVC.Models.Person
+
+@{
+    ViewData["Title"] = "Obrisi osobu";
+}
+
+<h2>Obrisi osobu</h2>
+
+<h3>DA li ste sigurni da zelite da obrisete ovu osobu?</h3>
+
+<div>
+    <h4>Osoba</h4>
+    <hr />
+    <table class="table table-bordered">
+        <tr>
+            <th>Ime</th>
+            <td>@Model.FirstName</td>
+        </tr>
+        <tr>
+            <th>Prezime</th>
+            <td>@Model.LastName</td>
+        </tr>
+        <tr>
+            <th>Datum rodjenja</th>
+            <td>@Model.DateOfBirth.ToShortDateString()</td>
+        </tr>
+        <tr>
+            <th>Nacionalnost</th>
+            <td>@Model.Nationality?.Name</td>
+        </tr>
+    </table>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="PersonId" />
+        <input type="submit" value="Obrisi" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Otkazi</a>
+    </form>
+</div>

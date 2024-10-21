@@ -1,27 +1,49 @@
 ﻿@model BioskopMVC.Models.Person
 
-<h2>Create New Person</h2>
+@{
+    ViewData["Title"] = "Edit Person";
+}
 
-<form asp-action="Create" method="post">
+<h2>Izmeni podatke o osobi</h2>
+
+<form asp-action="Edit">
+
+    <input type="hidden" asp-for="PersonId" />
+
     <div class="form-group">
         <label asp-for="FirstName" class="control-label"></label>
         <input asp-for="FirstName" class="form-control" />
         <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
+
     <div class="form-group">
         <label asp-for="LastName" class="control-label"></label>
         <input asp-for="LastName" class="form-control" />
         <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
+
     <div class="form-group">
         <label asp-for="DateOfBirth" class="control-label"></label>
-        <input asp-for="DateOfBirth" class="form-control" />
+        <input asp-for="DateOfBirth" class="form-control" type="date" />
         <span asp-validation-for="DateOfBirth" class="text-danger"></span>
     </div>
+
     <div class="form-group">
-        <label asp-for="NationalityId" class="control-label"></label>
-        <select asp-for="NationalityId" class="form-control" asp-items="ViewBag.Nationalities"></select>
+        <label asp-for="NationalityId" class="control-label">Izaberite nacionalnost</label>
+        <select asp-for="NationalityId" asp-items="ViewBag.Nationalities" class="form-control"></select>
         <span asp-validation-for="NationalityId" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+
+    <div class="form-group">
+        <input type="submit" value="Sacuvaj" class="btn btn-primary" />
+    </div>
 </form>
+
+<div>
+    <a asp-action="Index">Nazad na listu</a>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
