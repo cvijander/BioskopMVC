@@ -156,7 +156,7 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 ## Nationality 
 
 - [x] - **Kreirana tabela u bazi** 
-![Kreirana tabela ](./images/NationalityTabela.png)
+![Kreirana tabela ](./images/NacionalstTabela.png)
 
 - [x] - **Lista nacionalnosti**
 ![Lista nacionalnosti](./images/GetNacionity.png)
@@ -172,18 +172,18 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
       
 ### Person
 
-- [x] Kreirana tabela
-![Kreirana tabela](./images/PeronTabela.png)
+- [x] - **Kreirana tabela**
+![Kreirana tabela](./images/PersonTabela.png)
       
-- [x] Prikaz lista osoba
+- [x] - **Prikaz lista osoba**
 ![Prikaz lista osoba](./images/PersonIndex.png)
 
-- [x] Create  - kreiranje nove osobe
+- [x] - **Create  - kreiranje nove osobe**
 ![Kreiranje nove osobe](./images/PersonCreate.png)
       
-- [x] Edit  - modifikovanje postojece osobe
+- [x] - **Edit  - modifikovanje postojece osobe**
 ![Modifikovanje postojece osobe](./images/PersonEdit.png)
 
-- [x] Delete - brisanje postojece osobe
+- [x] - **Delete - brisanje postojece osobe**
 ![Brisanje postojece osobe](./images/PeronDelete.png)      
       
