@@ -156,7 +156,7 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 ## Nationality 
 
 - [x] - **Kreirana tabela u bazi** 
-![Kreirana tabela ](./images/NacionalstTabela.png)
+![Kreirana tabela ](./images/NacionalistTabela.png)
 
 - [x] - **Lista nacionalnosti**
 ![Lista nacionalnosti](./images/GetNacionity.png)
@@ -185,5 +185,5 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 ![Modifikovanje postojece osobe](./images/PersonEdit.png)
 
 - [x] - **Delete - brisanje postojece osobe**
-![Brisanje postojece osobe](./images/PeronDelete.png)      
+![Brisanje postojece osobe](./images/PersonDelete.png)      
       
