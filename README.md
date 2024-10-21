@@ -107,8 +107,8 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 
 - ### Actor
 
-- [ ] Kreirana tabela
-- [ ] Prikaz - 
+- [x] Kreirana tabela
+- [x] Prikaz - postojecih glumaca 
 - [ ] Create  - 
 - [ ] Edit  - 
 - [ ] Delete - 
@@ -186,4 +186,14 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 
 - [x] - **Delete - brisanje postojece osobe**
 ![Brisanje postojece osobe](./images/PersonDelete.png)      
+
+- ### Actor
+
+- [x] Kreirana tabela
+- [x] Prikaz - postojecih glumaca 
+- [ ] Create  - 
+- [ ] Edit  - 
+- [ ] Delete -
+
+
       
