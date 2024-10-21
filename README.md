@@ -88,21 +88,22 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
  - [x] Kreiran osnovni model aplikacije
  -  
 
-### Nationalities
+### Nationality
 
 - [x] Kreirana tabela
 - [x] Partialview  - lista nacionalnosti
 - [x] Create  - kreiranje nove nacionalnosti
 - [x] Edit  - modifikovanje postojece
 - [x] Delete - brisanje postojece nacionalnosti
-- [x] Index - tabela nacionalnosti 
+- [x] Index - tabela nacionalnosti
+
 ### Person
 
-- [ ] Kreirana tabela
-- [ ] Prikaz
-- [ ] Create  - 
-- [ ] Edit  - 
-- [ ] Delete - 
+- [x] Kreirana tabela
+- [x] Prikaz lista osoba
+- [x] Create  - kreiranje nove osobe
+- [x] Edit  - modifikovanje postojece osobe 
+- [x] Delete - brisanje postojece osobe
 
 - ### Actor
 
@@ -152,10 +153,10 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 - [ ] Edit  - 
 - [ ] Delete -
 
-## Nationalities 
+## Nationality 
 
 - [x] - **Kreirana tabela u bazi** 
-![Kreirana tabela ](./images/NationalitiesTabela.png)
+![Kreirana tabela ](./images/NacionalistTabela.png)
 
 - [x] - **Lista nacionalnosti**
 ![Lista nacionalnosti](./images/GetNacionity.png)
@@ -169,5 +170,20 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 - [x] - **Brisanje postojece nacionalnosti**
 ![Brisanje postojece nacionalnosti](./images/NationalityDelete.png)      
       
+### Person
 
+- [x] - **Kreirana tabela**
+![Kreirana tabela](./images/PersonTabela.png)
+      
+- [x] - **Prikaz lista osoba**
+![Prikaz lista osoba](./images/PersonIndex.png)
+
+- [x] - **Create  - kreiranje nove osobe**
+![Kreiranje nove osobe](./images/PersonCreate.png)
+      
+- [x] - **Edit  - modifikovanje postojece osobe**
+![Modifikovanje postojece osobe](./images/PersonEdit.png)
+
+- [x] - **Delete - brisanje postojece osobe**
+![Brisanje postojece osobe](./images/PersonDelete.png)      
       
