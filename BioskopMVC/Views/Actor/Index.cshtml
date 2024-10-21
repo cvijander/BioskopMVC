@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BioskopMVC.Models.Actor>
+
+    @{
+        ViewBag.Title = "LIsta glumaca";
+    }
+
+    <h2>Lista glumaca</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Datum rodjenja</th>
+                <th>Biografija</th>
+                <th>Poznata uloga</th>
+                <th>Nagrade</th>
+                <th>Datum smrti</th>
+                <th>Zemlja porekla</th>
+                <th>Akcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var actor in Model)
+            {
+            <tr>
+                <td>@actor.FirstName</td>
+                <td>@actor.LastName</td>
+                <td>@actor.DateOfBirth.ToString("dd.MM.yyyy")</td>
+                <td>@actor.Biography</td>
+                <td>@actor.FamousRole</td>
+                <td>@actor.Awards</td>
+                <td>@actor.DateOfDeath?.ToString("dd.MM.yyyy")</td>
+                <td>@actor.Nationality.Name</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@actor.PersonId" class="btn btn-primary">Izmeni</a>
+                    <a asp-action="Delete" asp-route-id="@actor.PersonId" class="btn btn-secondary">Obrisi</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+
+    </table>
+
+    <a asp-action="Create" class="btn btn-success">Dodaj novog glumca</a>
+
