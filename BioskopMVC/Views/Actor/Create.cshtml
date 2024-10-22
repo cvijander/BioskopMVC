@@ -1,0 +1,71 @@
+﻿@model BioskopMVC.Models.Actor 
+
+@{
+    ViewBag.Title = "Dodaj glumca";
+}
+
+<h2>Dodaj novog glumca</h2>
+
+<form asp-action="Create" method="post">
+
+    <input type="hidden" asp-for="PersonId" />
+
+    <div class = "form-group">
+        <label asp-for="FirstName" class="control-label">Ime</label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LastName" class="control-label">Prezime</label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DateOfBirth" class="control-label">Datum rodjenja</label>
+        <input asp-for="DateOfBirth" class="form-control" type="date" />
+        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NationalityId" class="control-label"></label>
+        <select asp-for="NationalityId" class="form-control" asp-items="ViewBag.Nationalities"></select>
+        <span asp-validation-for="NationalityId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Biography" class="control-label">Biografija</label>
+        <input asp-for="Biography" class="form-control" />
+        <span asp-validation-for="Biography" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FamousRole" class="control-label">Poznata uloga</label>
+        <input asp-for="FamousRole" class="form-control" />
+        <span asp-validation-for="FamousRole" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Awards" class="control-label">Nagrade</label>
+        <input asp-for="Awards" class="form-control"  />
+        <span asp-validation-for="Awards" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DateOfDeath" class="control-label">Datum smrti</label>
+        <input asp-for="DateOfDeath" class="form-control" type="date" />
+        <span asp-validation-for="DateOfDeath" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Dodaj glumca" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Otkazi</a>
+    </div>    
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
