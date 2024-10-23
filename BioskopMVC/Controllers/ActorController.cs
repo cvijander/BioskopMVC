@@ -365,5 +365,99 @@ namespace BioskopMVC.Controllers
                 }
             }
         }
+
+        // GET: Actor / Delete /1 
+        public IActionResult Delete(int id)
+        {
+            Actor actor = null;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
+                    string sql = "SELECT p.PersonId, p.FirstName, p.LastName, p.DateOfBirth, a.Biography, a.Awards, a.FamousRole, a.DateOfDeath, p.NationalityId, n.Name AS NationalityName From Actor a JOIN Person p ON a.PersonId= p.PersonId JOIN Nationality n ON p.NationalityId = n.NationalityId WHERE a.PersonId = @PersonId";
+                    SqlCommand command = new SqlCommand(sql, connection);
+
+                    command.Parameters.AddWithValue("@PersonId", id);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            actor = new Actor
+                            {
+                                PersonId = reader.GetInt32(0),
+                                FirstName = reader.GetString(1),
+                                LastName = reader.GetString(2),
+                                DateOfBirth = reader.GetDateTime(3),
+                                Biography = reader.GetString(4),
+                                FamousRole = reader.GetString(5),
+                                Awards = reader.GetString(6),
+                                DateOfDeath = reader.IsDBNull(7) ? (DateTime?)null : reader.GetDateTime(7),
+                                NationalityId = reader.GetInt32(8),
+                                Nationality = new Nationality
+                                {
+                                    Name = reader.GetString(9)
+                                }
+                            };
+                        }
+                    }
+                }
+            
+
+                if (actor == null)
+                {
+                    return NotFound();
+                }
+                Console.WriteLine($"Glumac je pronadjen {actor.FirstName} {actor.LastName}");
+
+            }
+
+             catch (Exception ex)
+            {
+
+                Console.WriteLine($"Greska prilikom dohvatanja glumca: {ex.Message}");
+                ModelState.AddModelError(string.Empty, "Doslo je do greske prilikom ucitavanja glumca");
+            }
+
+            return View(actor);
+        }
+
+        // DELETE Actor / Delete /1
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int PersonId)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
+
+                    string deleteActorSql = "DELETE FROM Actor WHERE PersonId = @PersonId";
+                    SqlCommand deleteActorCommand = new SqlCommand(deleteActorSql, connection);
+                    deleteActorCommand.Parameters.AddWithValue("@PersonId", PersonId);
+
+                    int rowsAffectredActor = deleteActorCommand.ExecuteNonQuery();
+                    Console.WriteLine($"Rows affected in Actor table: {rowsAffectredActor}");
+
+                    string deletePersonSql = "DELETE FROM Person WHERE PersonId = @PersonId";
+                    SqlCommand deletePersonCommand = new SqlCommand(deletePersonSql, connection);
+                    deletePersonCommand.Parameters.AddWithValue("@PersonId",PersonId);
+
+                    int rowsAffectedPerson = deletePersonCommand.ExecuteNonQuery();
+                    Console.WriteLine($"Rows affected in Person table: {rowsAffectedPerson}");
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Greska prilikom brisanja glumca {ex.Message}");
+                ModelState.AddModelError(string.Empty, "Doslo je do greske prilikom brisanja glumca");
+                return View();
+            }
+        }
     }
 }

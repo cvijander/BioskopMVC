@@ -1,0 +1,54 @@
+﻿@model BioskopMVC.Models.Actor
+
+@if (Model != null )
+{
+<h2>Brisanje glumca</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Datum rodjenja</th>
+            <th>Datum smrti</th>
+            <th>Biografija</th>
+            <th>Poznata uloga</th>
+            <th>Nagrade</th>
+            <th>Nacionalost</th>
+        </tr>        
+    </thead>
+    <tbody>
+        <tr>
+           <td>@Model.FirstName</td>
+           <td>@Model.LastName</td>
+           <td>@Model.DateOfBirth.ToShortDateString()</td>
+           <td> @if (Model.DateOfDeath.HasValue)
+                    {
+                        @Model.DateOfDeath?.ToShortDateString()
+                    }
+                    else
+                    {
+                        <span>-- Nije preminio--</span>
+                    }
+           </td>
+           <td>@Model.Biography</td>
+           <td>@Model.FamousRole</td>
+           <td>@Model.Awards</td>
+           <td>@Model.Nationality.Name</td>
+        </tr>        
+    </tbody>
+</table>
+<hr />
+
+<h4>Da li ste sigurni da zelite da obrisete ovog glumca?</h4>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" name="PersonId" value="@Model.PersonId" />
+    <button type="submit" class="btn btn-danger">Obrisi</button>
+    <a asp-action="Index" class="btn btn-secondary">Odustani</a>
+    </form>
+}
+else
+{
+    <p>Nema podataka za prikaz.</p>
+}
