@@ -1,0 +1,68 @@
+﻿@model List<BioskopMVC.Models.Movie>
+
+    @{
+        ViewBag.Title = "Prikaz filmova";
+    }
+    <h1>Lista filmova</h1>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Poster</th>
+                <th>Naslov</th>
+                <th>Trajanje</th>
+                <th>Glumci</th>
+                <th>Status</th>
+                <th>Datum izlaska</th>
+                <th>Opis</th>
+                <th>Izdavacka kuca</th>
+                <th>Ocena</th>
+                <th>Reziser</th>            
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var movie in Model)
+                {
+                <tr>
+                    <td>
+                        @if(!string.IsNullOrEmpty(movie.PosterUrl))
+                        {
+                            <img src="@movie.PosterUrl" alt="Poster za @movie.Title" width="100" />
+                        }
+                        else
+                        {
+                            <span>Nema postera</span>
+                        }
+                    </td>
+                    <td>@movie.Title</td>
+                    <td>@movie.Duration</td>
+                    <td>@movie.ReleaseDate.ToString("dd.MM.yyyy")</td>
+                    <td>@movie.Description</td>
+                    <td>@movie.ProductionCompany</td>
+                    <td>@movie.Rating</td>
+                    <td>@movie.Director.FirstName @movie.Director.LastName</td>
+                    <td>
+                        <ul>
+                            @foreach( var actor in movie.Actors)
+                            {
+                                <li>@actor.FirstName @actor.LastName</li>
+                            }
+                        </ul>
+                    </td>
+                    <td>
+                        @if(movie.isActive)
+                        {
+                            <span class="text-success">Aktivan</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger">Nije aktivan</span>
+                        }
+                    </td>
+                </tr>
+            
+             }
+      </tbody>
+</table>
+   
