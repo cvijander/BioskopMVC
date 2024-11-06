@@ -86,6 +86,28 @@ Aplikacija  je  planirano da bude slicna  kao što je primenjeno na sajtu [Cinep
 
 ## Status zadatka 
  - [x] Kreiran osnovni model aplikacije
+ - [ ] Da moze da se klijent loginuje na aplikaciju
+ - [ ] Svaki korisnik mora da se loginuje i da ne moze da pristupi aplikaciji pre nego sto se loginuje
+ - [ ] Registracija je obavezna
+ - [ ] Prilikom registracie treba nam Email (da bi se slalo promo materijalo ) ali da se moze logovati preko emaila ili korisnickog imena
+ - [ ] Nice to have -> Na login stranici da ima mogucnost da korisnici ne mogu da se loginuju, pre nego sto se nalog validira, a on se validira preko emaila
+ - [ ] Svi korisnici moraju da imaju email i verifirkovace svoj nalog preko mejla
+ - [ ] Pasword minimalno 8 karaktera, 1 broj i 1 poseban simbol
+ - [ ] username mora biti jedna rec
+ - [ ] Korisnik bi trebalo da moze da sacuva svoju sesiju do sat vremena (tako da u tom vremenu je ulogovan)
+ - [ ] Za registraciju , treba email, username, ime, prezime, sifra , da se ponovi sifra i datum rodjenja.
+ - [ ] Ogracnicenje za godine, preko 18 godina
+ - [ ] Login info ce da stoji na posebnoj stranici
+ - [ ] Na home stranici da se vidi sve izlistani podaci (sve main entitete ) u nekom gridu
+ - [ ] 3 proizvoda  u jednom redu ,svi podaci da budu  grupisano u jednu karticu
+ - [ ] kao vise stranica koje se refresiju, kao infinite scroll,
+ - [ ] treba na neki nacin limitirati kolicinu entiteta koji se vide na home stranici
+ - [ ]  Postavljanjem kategorija da dobijemo listu proizvoda
+ - [ ]  Da mogu da se sortiraju podaci po proizvoljnom propertiju 
+ - [ ]  Da u nasim podacima ima obavezan property Created at Datetime
+ - [ ]  Da mogu da se sortiraju podaci po created Date i po imenima, i po nekoj integer ili decimal vrednosti
+ - [ ]  nice to have -> Search  tab
+ - [ ]  ocenjivanje, komentarisanje  filmova od strane korisnika
  -  
 
 ### Nationality
